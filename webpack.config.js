@@ -1,16 +1,22 @@
-const path = require('path');
+const path              = require('path');
+const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './src/app.html',
-  filename: 'app.html',
-  inject: 'body'
-});
 
 module.exports = {
-  entry: './src/app.js',
+  resolve: {
+    alias: {
+      Components: path.resolve(__dirname, 'src/components/'),
+    }
+  },
+  context: path.resolve(__dirname, 'src'),
+  entry: './index.js',
   output: {
-    path: path.resolve(__dirname + './bin'),
-    filename: 'app.bundle.js'
+    path: path.resolve(__dirname + 'bin'),
+    filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'bin'),
+    historyApiFallback: true
   },
   module: {
     loaders: [{
@@ -19,5 +25,10 @@ module.exports = {
       exclude: /node_modules/
     }]
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      inject: 'body'
+    })
+  ]
 }
