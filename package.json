@@ -1,0 +1,22 @@
+{
+  "name": "reactpress",
+  "version": "1.0.0",
+  "description": "react + wordpress = reactpress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asilvadesigns/reactpress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asilvadesigns/reactpress/issues"
+  },
+  "homepage": "https://github.com/asilvadesigns/reactpress#readme",
+  "devDependencies": {
+    "webpack": "^3.5.5"
+  }
+}
